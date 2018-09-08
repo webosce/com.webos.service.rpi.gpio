@@ -2,6 +2,8 @@
 #include <string>
 #include <luna-service2/lunaservice.h>
 #include <wiringPi.h>
+#include <wiringPiI2C.h>
+#include <wiringPiSPI.h>
 #include <json-c/json.h>
 #include "./include/logging.h"
 
@@ -13,7 +15,6 @@ static bool cbHello(LSHandle *sh, LSMessage* message, void* ctx)
     json_object *pinObj;
     json_object *pinNum;
     int num;
-    
     GPIO_LOG_DEBUG("test");
     pinObj = json_tokener_parse(LSMessageGetPayload(message));
 

@@ -23,6 +23,10 @@ luna-service2/lunaservice.h
 -
 wiringPi.h
 -
+wiringPiI2C.h
+-
+wiringPiSPI.h
+-
 json-c/json.h
 -
 ./include/logging.h
