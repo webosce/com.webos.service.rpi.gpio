@@ -1,8 +1,10 @@
 {
     "public": [
-        "com.gpiotest.service.native/gpio",
-	"com.gpiotest.service.native/setWiringPi"
-	"com.gpiotest.service.native/setWiringPiPhys"
-	"com.gpiotest.service.native/setWiringPiSys"
+        "com.gpiotest.service.native/gpio", \
+	"com.gpiotest.service.native/setWiringPi"\
+	"com.gpiotest.service.native/setWiringPiPhys"\
+	"com.gpiotest.service.native/setWiringPiSys"\
+	"com.gpiotest.service.native/setPinMode"\
+	"com.gpiotest.service.native/digitWrite"
     ]
 }

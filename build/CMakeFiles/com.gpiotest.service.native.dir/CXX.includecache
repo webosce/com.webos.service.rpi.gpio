@@ -31,6 +31,8 @@ luna-service2/lunaservice.h
 -
 wiringPi.h
 -
+wiringSerial.h
+-
 wiringPiI2C.h
 -
 wiringPiSPI.h

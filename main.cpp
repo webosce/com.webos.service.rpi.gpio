@@ -2,6 +2,7 @@
 #include <string>
 #include <luna-service2/lunaservice.h>
 #include <wiringPi.h>
+#include <wiringSerial.h>
 #include <wiringPiI2C.h>
 #include <wiringPiSPI.h>
 #include <json-c/json.h>
@@ -88,8 +89,64 @@ static bool setWiringPiSys(LSHandle *sh, LSMessage* message, void *ctx)
    return true;
 
 }
+
+static bool setPinMode(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   LSError lserror;
+   int num, mode;
+   json_object *pinObj;
+   json_object *pinNum;
+   json_object *pinmode;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   pinNum = json_object_object_get(pinObj,"pinNum");
+   pinmode = json_object_object_get(pinObj,"pinMode");
+   num = json_object_get_int(pinNum);
+   mode = json_object_get_int(pinmode);
+    
+   if((!num) || (!mode)) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   pinMode(num, mode);
+   LSMessageReplySuccess(sh, message);
+   
+   return true;
+}
+
+static bool digitWrite(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   LSError lserror;
+   int num, value;
+   json_object *pinObj;
+   json_object *pinNum;
+   json_object *pinValue;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   pinNum = json_object_object_get(pinObj,"pinNum");
+   pinValue = json_object_object_get(pinObj,"pinValue");
+   num = json_object_get_int(pinNum);
+   value = json_object_get_int(pinValue);
+    
+   if((!num) || (!value)) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   digitalWrite(num, value);
+   LSMessageReplySuccess(sh, message);
+   
+   return true;
+}
+
 static LSMethod serviceMethods[] = {
-    { "gpio", cbHello }, {"setWiringPi", setWiringPi},{"setWiringPiPhys", setWiringPiPhys}, {"setWiringPiSys", setWiringPiSys}
+   { "gpio", cbHello }, 
+   {"setWiringPi", setWiringPi},
+   {"setWiringPiPhys", setWiringPiPhys},
+   {"setWiringPiSys", setWiringPiSys},
+   {"setPinMode", setPinMode},
+   {"digitWrite", digitWrite}
 };
  
 int main(int argc, char* argv[])
