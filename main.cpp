@@ -140,13 +140,38 @@ static bool digitWrite(LSHandle *sh, LSMessage* message, void *ctx)
    return true;
 }
 
+static bool setPullUpDnControl(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   LSError lserror;
+   int num, pud;
+   json_object *pinObj;
+   json_object *pinNum;
+   json_object *pinPud;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   pinNum = json_object_object_get(pinObj,"pinNum");
+   pinPud = json_object_object_get(pinObj,"pinPud");
+   num = json_object_get_int(pinNum);
+   pud = json_object_get_int(pinPud);
+    
+   if((!num) || (!pud)) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   pullUpDnControl(num,pud);
+   LSMessageReplySuccess(sh, message);
+   
+   return true;
+}
 static LSMethod serviceMethods[] = {
    { "gpio", cbHello }, 
    {"setWiringPi", setWiringPi},
    {"setWiringPiPhys", setWiringPiPhys},
    {"setWiringPiSys", setWiringPiSys},
    {"setPinMode", setPinMode},
-   {"digitWrite", digitWrite}
+   {"digitWrite", digitWrite},
+   {"setPullUpDnControl", setPullUpDnControl}
 };
  
 int main(int argc, char* argv[])
