@@ -1,0 +1,6 @@
+{
+    "public": [
+        "com.gpiotest.service.native/gpio",
+	"com.gpiotest.service.native/setWiringPi"
+    ]
+}

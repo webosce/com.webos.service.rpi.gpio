@@ -1,0 +1,6 @@
+/usr/sbin/com.gpiotest.service.native
+/usr/share/luna-service2/services.d/com.gpiotest.service.native.service
+/usr/share/luna-service2/roles.d/com.gpiotest.service.native.role.json
+/usr/share/luna-service2/client-permissions.d/com.gpiotest.service.native.perm.json
+/usr/share/luna-service2/api-permissions.d/com.gpiotest.service.native.api.json
+/etc/systemd/system/com.gpiotest.service.native.service

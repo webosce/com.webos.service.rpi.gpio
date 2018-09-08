@@ -1,0 +1,13 @@
+{
+    "exeName":"/usr/sbin/com.gpiotest.service.native",
+    "type": "regular",
+    "allowedNames": ["com.gpiotest.service.native"],
+    "permissions": [
+        {
+            "service":"com.gpiotest.service.native",
+            "outbound":[
+                "*"
+            ]
+        }
+    ]
+}

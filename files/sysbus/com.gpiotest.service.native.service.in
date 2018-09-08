@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.gpiotest.service.native
+Exec=/usr/sbin/com.gpiotest.service.native
+Type=static
