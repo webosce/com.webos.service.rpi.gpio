@@ -6,24 +6,29 @@
 #include <wiringPiSPI.h>
 #include <json-c/json.h>
 #include "./include/logging.h"
+#include "./include/gpioBase.h"
 
 static bool cbHello(LSHandle *sh, LSMessage* message, void* ctx)
 {
     int i = 0;
-    std::string answer = "{\"returnValue\": true, \"gpio\": \"hello gpiotest!!\"}";
     LSError lserror;
     json_object *pinObj;
     json_object *pinNum;
-    int num;
+    int num=0;
+   
     GPIO_LOG_DEBUG("test");
     pinObj = json_tokener_parse(LSMessageGetPayload(message));
 
     pinNum = json_object_object_get(pinObj,"pinNum");
     num = json_object_get_int(pinNum);
+    
+    if(!num) {
+	LSMessageReplyErrorBadJson(sh,message);
+    }
 
 
-   // LSMessagePrint(message, stdout);
     if(wiringPiSetup() == -1) {
+	LSMessageReplySetupFail(sh, message);
 	return false;
     }
 
@@ -36,55 +41,35 @@ static bool cbHello(LSHandle *sh, LSMessage* message, void* ctx)
 	delay(1000);
     }
 
-    if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
-    {
-        g_print("Message reply error!!\n");
-        LSErrorPrint(&lserror, stdout);
- 
-        return false;
-    }
+    LSMessageReplySuccess(sh, message);
     return true;
 }
 
 static bool setWiringPi(LSHandle *sh, LSMessage* message, void *ctx)
 {
    LSError lserror;
-   std::string answer = "{\"returnValue\": true, \"setUp\": \"setWiringPi error!\"}";
 
    if(wiringPiSetup() == -1)
    {
-	g_print("setup error");
+	LSMessageReplySetupFail(sh, message);
 	return false;
    }
-   if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
-   {
-       g_print("Message reply error!!\n");
-       LSErrorPrint(&lserror, stdout);
- 
-       return false;
-   }
-   
+  
+   LSMessageReplySuccess(sh, message);
    return true;
 }
 
 static bool setWiringPiPhys(LSHandle *sh, LSMessage* message, void *ctx) 
 {
    LSError lserror;
-   std::string answer = "{\"returnValue\": true, \"setUp\": \"setWiringPiPhys!\"}";
 
    if(wiringPiSetupPhys() == -1)
    {
-	g_print("setup error");
+	LSMessageReplySetupFail(sh, message);
 	return false;
    }
-   if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
-   {
-       g_print("Message reply error!!\n");
-       LSErrorPrint(&lserror, stdout);
- 
-       return false;
-   }
    
+   LSMessageReplySuccess(sh, message);
    return true;
 
 }
@@ -92,26 +77,19 @@ static bool setWiringPiPhys(LSHandle *sh, LSMessage* message, void *ctx)
 static bool setWiringPiSys(LSHandle *sh, LSMessage* message, void *ctx) 
 {
    LSError lserror;
-   std::string answer = "{\"returnValue\": true, \"setUp\": \"setWiringPiSys\"}";
 
    if(wiringPiSetupSys() == -1)
    {
-	g_print("setup error");
+	LSMessageReplySetupFail(sh, message);
 	return false;
    }
-   if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
-   {
-       g_print("Message reply error!!\n");
-       LSErrorPrint(&lserror, stdout);
  
-       return false;
-   }
-   
+   LSMessageReplySuccess(sh, message);
    return true;
 
 }
 static LSMethod serviceMethods[] = {
-    { "gpio", cbHello }, {"setWiringPi", setWiringPi},{"setWiringPiPhys", setWiringPiPhys}, {"setWiringPiSys",setWiringPiSys}
+    { "gpio", cbHello }, {"setWiringPi", setWiringPi},{"setWiringPiPhys", setWiringPiPhys}, {"setWiringPiSys", setWiringPiSys}
 };
  
 int main(int argc, char* argv[])

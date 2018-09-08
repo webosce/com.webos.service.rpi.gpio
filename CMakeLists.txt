@@ -25,7 +25,7 @@ include_directories(
 find_library(wiringPi_LIB wiringPi)
 find_library(json-c_LIB json-c)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(SRCS main.cpp ./src/logging.cpp)
+set(SRCS main.cpp ./src/logging.cpp ./src/gpioBase.cpp)
   
 add_executable(${PROJECT_NAME} ${SRCS})
   

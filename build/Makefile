@@ -210,6 +210,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/com.gpiotest.service.native.dir/build.make CMakeFiles/com.gpiotest.service.native.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/gpioBase.o: src/gpioBase.cpp.o
+
+.PHONY : src/gpioBase.o
+
+# target to build an object file
+src/gpioBase.cpp.o:
+	$(MAKE) -f CMakeFiles/com.gpiotest.service.native.dir/build.make CMakeFiles/com.gpiotest.service.native.dir/src/gpioBase.cpp.o
+.PHONY : src/gpioBase.cpp.o
+
+src/gpioBase.i: src/gpioBase.cpp.i
+
+.PHONY : src/gpioBase.i
+
+# target to preprocess a source file
+src/gpioBase.cpp.i:
+	$(MAKE) -f CMakeFiles/com.gpiotest.service.native.dir/build.make CMakeFiles/com.gpiotest.service.native.dir/src/gpioBase.cpp.i
+.PHONY : src/gpioBase.cpp.i
+
+src/gpioBase.s: src/gpioBase.cpp.s
+
+.PHONY : src/gpioBase.s
+
+# target to generate assembly for a file
+src/gpioBase.cpp.s:
+	$(MAKE) -f CMakeFiles/com.gpiotest.service.native.dir/build.make CMakeFiles/com.gpiotest.service.native.dir/src/gpioBase.cpp.s
+.PHONY : src/gpioBase.cpp.s
+
 src/logging.o: src/logging.cpp.o
 
 .PHONY : src/logging.o
@@ -254,6 +281,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/gpioBase.o"
+	@echo "... src/gpioBase.i"
+	@echo "... src/gpioBase.s"
 	@echo "... src/logging.o"
 	@echo "... src/logging.i"
 	@echo "... src/logging.s"

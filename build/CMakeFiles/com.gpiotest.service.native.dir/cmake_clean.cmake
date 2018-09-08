@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/com.gpiotest.service.native.dir/main.cpp.o"
   "CMakeFiles/com.gpiotest.service.native.dir/src/logging.cpp.o"
+  "CMakeFiles/com.gpiotest.service.native.dir/src/gpioBase.cpp.o"
   "com.gpiotest.service.native.pdb"
   "com.gpiotest.service.native"
 )

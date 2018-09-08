@@ -6,8 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/jhryu/project/com.gpiotest.service.native/./include/gpioBase.h
+luna-service2/lunaservice.h
+-
+
 /home/jhryu/project/com.gpiotest.service.native/./include/logging.h
 PmLogLib.h
+-
+
+/home/jhryu/project/com.gpiotest.service.native/include/gpioBase.h
+luna-service2/lunaservice.h
 -
 
 /home/jhryu/project/com.gpiotest.service.native/include/logging.h
@@ -31,6 +39,14 @@ json-c/json.h
 -
 ./include/logging.h
 /home/jhryu/project/com.gpiotest.service.native/./include/logging.h
+./include/gpioBase.h
+/home/jhryu/project/com.gpiotest.service.native/./include/gpioBase.h
+
+/home/jhryu/project/com.gpiotest.service.native/src/gpioBase.cpp
+string.h
+-
+../include/gpioBase.h
+/home/jhryu/project/com.gpiotest.service.native/include/gpioBase.h
 
 /home/jhryu/project/com.gpiotest.service.native/src/logging.cpp
 stdio.h
