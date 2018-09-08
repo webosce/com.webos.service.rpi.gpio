@@ -1,6 +1,6 @@
 [D-BUS Service]
 Name=com.gpiotest.service.native
-Exec=/usr/bin gpio load i2c
+Exec=/usr/bin/gpio load i2c
 Exec=/usr/bin/gpio load spi
 Exec=/usr/sbin/com.gpiotest.service.native
 Type=static
