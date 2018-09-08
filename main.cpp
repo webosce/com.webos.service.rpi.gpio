@@ -20,25 +20,27 @@ static bool cbHello(LSHandle *sh, LSMessage* message, void* ctx)
     pinNum = json_object_object_get(pinObj,"pinNum");
     num = json_object_get_int(pinNum);
 
-if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
-    {
-        g_print("Message reply error!!\n");
-        LSErrorPrint(&lserror, stdout);
- 
-        return false;
-    }
 
-    LSMessagePrint(message, stdout);
+   // LSMessagePrint(message, stdout);
     if(wiringPiSetup() == -1) {
 	return false;
     }
 
     pinMode(num, OUTPUT);
+    
     for(i=0; i<10; i++) {
 	digitalWrite(num, 1);
 	delay(1000);
 	digitalWrite(num, 0);
 	delay(1000);
+    }
+
+    if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
+    {
+        g_print("Message reply error!!\n");
+        LSErrorPrint(&lserror, stdout);
+ 
+        return false;
     }
     return true;
 }
@@ -46,18 +48,69 @@ if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
 static bool setWiringPi(LSHandle *sh, LSMessage* message, void *ctx)
 {
    LSError lserror;
+   std::string answer = "{\"returnValue\": true, \"setUp\": \"setWiringPi error!\"}";
 
    if(wiringPiSetup() == -1)
    {
 	g_print("setup error");
-	LSErrorPrint(&lserror, stdout);
 	return false;
    }
+   if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
+   {
+       g_print("Message reply error!!\n");
+       LSErrorPrint(&lserror, stdout);
+ 
+       return false;
+   }
+   
    return true;
 }
 
+static bool setWiringPiPhys(LSHandle *sh, LSMessage* message, void *ctx) 
+{
+   LSError lserror;
+   std::string answer = "{\"returnValue\": true, \"setUp\": \"setWiringPiPhys!\"}";
+
+   if(wiringPiSetupPhys() == -1)
+   {
+	g_print("setup error");
+	return false;
+   }
+   if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
+   {
+       g_print("Message reply error!!\n");
+       LSErrorPrint(&lserror, stdout);
+ 
+       return false;
+   }
+   
+   return true;
+
+}
+
+static bool setWiringPiSys(LSHandle *sh, LSMessage* message, void *ctx) 
+{
+   LSError lserror;
+   std::string answer = "{\"returnValue\": true, \"setUp\": \"setWiringPiSys\"}";
+
+   if(wiringPiSetupSys() == -1)
+   {
+	g_print("setup error");
+	return false;
+   }
+   if (!LSMessageReply(sh, message, answer.c_str(), &lserror))
+   {
+       g_print("Message reply error!!\n");
+       LSErrorPrint(&lserror, stdout);
+ 
+       return false;
+   }
+   
+   return true;
+
+}
 static LSMethod serviceMethods[] = {
-    { "gpio", cbHello }, {"setWiringPi", setWiringPi}
+    { "gpio", cbHello }, {"setWiringPi", setWiringPi},{"setWiringPiPhys", setWiringPiPhys}, {"setWiringPiSys",setWiringPiSys}
 };
  
 int main(int argc, char* argv[])
