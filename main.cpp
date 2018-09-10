@@ -272,15 +272,13 @@ static LSMethod serviceMethods[] = {
  
 int main(int argc, char* argv[])
 {
-    g_print("Start com.gpiotest.service.native\n");
- 
     LSError lserror;
     LSErrorInit(&lserror);
  
     GMainLoop* mainLoop = g_main_loop_new(nullptr, false);
     LSHandle *m_handle = nullptr;   
  
-    if(!LSRegister("com.gpiotest.service.native", &m_handle, &lserror))
+    if(!LSRegister("com.webos.service.rpi.gpio", &m_handle, &lserror))
     {
         g_print("Unable to register to luna-bus\n");
         LSErrorPrint(&lserror, stdout);
