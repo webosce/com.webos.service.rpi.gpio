@@ -46,10 +46,10 @@ RM = /home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/cmake -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jhryu/project/com.gpiotest.service.native
+CMAKE_SOURCE_DIR = /home/jhryu/project/com.webos.service.rpi.gpio
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jhryu/project/com.gpiotest.service.native/build
+CMAKE_BINARY_DIR = /home/jhryu/project/com.webos.service.rpi.gpio/build
 
 # Utility rule file for uninstall.
 
@@ -57,8 +57,8 @@ CMAKE_BINARY_DIR = /home/jhryu/project/com.gpiotest.service.native/build
 include CMakeFiles/uninstall.dir/progress.make
 
 CMakeFiles/uninstall:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/jhryu/project/com.gpiotest.service.native/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Uninstalling from "
-	sh -c "if [ -r /home/jhryu/project/com.gpiotest.service.native/build/install_manifest.txt ];then xargs -I @ -t rm -f \$$DESTDIR@ < /home/jhryu/project/com.gpiotest.service.native/build/install_manifest.txt 2>&1;else echo Unable to uninstall: /home/jhryu/project/com.gpiotest.service.native/build/install_manifest.txt not found;fi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Uninstalling from "
+	sh -c "if [ -r /home/jhryu/project/com.webos.service.rpi.gpio/build/install_manifest.txt ];then xargs -I @ -t rm -f \$$DESTDIR@ < /home/jhryu/project/com.webos.service.rpi.gpio/build/install_manifest.txt 2>&1;else echo Unable to uninstall: /home/jhryu/project/com.webos.service.rpi.gpio/build/install_manifest.txt not found;fi"
 
 uninstall: CMakeFiles/uninstall
 uninstall: CMakeFiles/uninstall.dir/build.make
@@ -75,6 +75,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/jhryu/project/com.gpiotest.service.native/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jhryu/project/com.gpiotest.service.native /home/jhryu/project/com.gpiotest.service.native /home/jhryu/project/com.gpiotest.service.native/build /home/jhryu/project/com.gpiotest.service.native/build /home/jhryu/project/com.gpiotest.service.native/build/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jhryu/project/com.webos.service.rpi.gpio/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jhryu/project/com.webos.service.rpi.gpio /home/jhryu/project/com.webos.service.rpi.gpio /home/jhryu/project/com.webos.service.rpi.gpio/build /home/jhryu/project/com.webos.service.rpi.gpio/build /home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

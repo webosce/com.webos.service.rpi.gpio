@@ -1,10 +1,10 @@
 Summary
 -------
-native gpio sample
+native gpio 
 
 Description
 -----------
-native gpio sample
+native gpio 
 
 How to Build on Linux
 ---------------------
@@ -17,7 +17,7 @@ Below are the tools and libraries (and their minimum versions) required to build
 * gcc
 * glib-2.0
 * wiringpi
-* libpbnjson
+* json-c 
 * pmloglib
 * make
 * cmake-modules-webos
@@ -26,7 +26,7 @@ Below are the tools and libraries (and their minimum versions) required to build
  
     $ cd build-webos
     $ source oe-init-build-env
-    $ bitbake com.gpiotest.service.native
+    $ bitbake com.webos.service.rpi.gpio
  
 Copyright and License Information
 =================================

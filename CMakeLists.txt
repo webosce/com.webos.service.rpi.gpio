@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.7)
-project(com.gpiotest.service.native CXX)
+project(com.webos.service.rpi.gpio CXX)
 set(CMAKE_BUILD_TYPE Debug)
   
 include(webOS/webOS)
@@ -41,4 +41,4 @@ target_link_libraries(${PROJECT_NAME} ${PMLOGLIB_LDFLAGS})
 install(TARGETS ${PROJECT_NAME} DESTINATION ${WEBOS_INSTALL_SBINDIR})
   
 webos_build_system_bus_files()
-webos_build_configured_file(files/systemd/com.gpiotest.service.native.service SYSCONFDIR systemd/system)
+webos_build_configured_file(files/systemd/com.webos.service.rpi.gpio SYSCONFDIR systemd/system)

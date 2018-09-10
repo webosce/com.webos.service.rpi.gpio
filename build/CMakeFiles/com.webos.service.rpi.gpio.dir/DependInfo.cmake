@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jhryu/project/com.gpiotest.service.native/main.cpp" "/home/jhryu/project/com.gpiotest.service.native/build/CMakeFiles/com.gpiotest.service.native.dir/main.cpp.o"
-  "/home/jhryu/project/com.gpiotest.service.native/src/gpioBase.cpp" "/home/jhryu/project/com.gpiotest.service.native/build/CMakeFiles/com.gpiotest.service.native.dir/src/gpioBase.cpp.o"
-  "/home/jhryu/project/com.gpiotest.service.native/src/logging.cpp" "/home/jhryu/project/com.gpiotest.service.native/build/CMakeFiles/com.gpiotest.service.native.dir/src/logging.cpp.o"
+  "/home/jhryu/project/com.webos.service.rpi.gpio/main.cpp" "/home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o"
+  "/home/jhryu/project/com.webos.service.rpi.gpio/src/gpioBase.cpp" "/home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.o"
+  "/home/jhryu/project/com.webos.service.rpi.gpio/src/logging.cpp" "/home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

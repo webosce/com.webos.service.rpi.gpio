@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "4.10.0-28-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/home/jhryu/webos/build-webos/BUILD/work/raspberrypi3-webos-linux-gnueabi/com.gpiotest.service.native/0.0.1-r0.local0/toolchain.cmake")
+include("/home/jhryu/webos/build-webos/BUILD/work/raspberrypi3-webos-linux-gnueabi/com.webos.service.rpi.gpio/0.0.1-r0.local0/toolchain.cmake")
 
 set(CMAKE_SYSTEM "Linux")
 set(CMAKE_SYSTEM_NAME "Linux")
