@@ -164,6 +164,98 @@ static bool setPullUpDnControl(LSHandle *sh, LSMessage* message, void *ctx)
    
    return true;
 }
+
+static bool writePwm(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   LSError lserror;
+   int num, pwm;
+   json_object *pinObj;
+   json_object *pinNum;
+   json_object *pinPwm;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   pinNum = json_object_object_get(pinObj,"pinNum");
+   pinPwm = json_object_object_get(pinObj,"pinPwm");
+   num = json_object_get_int(pinNum);
+   pwm = json_object_get_int(pinPwm);
+    
+   if((!num) || (!pwm)) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   pwmWrite(num, pwm);
+   LSMessageReplySuccess(sh, message);
+   
+   return true;
+}
+static bool digitRead(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   LSError lserror;
+   int num;
+   json_object *pinObj;
+   json_object *pinNum;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   pinNum = json_object_object_get(pinObj,"pinNum");
+   num = json_object_get_int(pinNum);
+    
+   if(!num) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   digitalRead(num);
+   LSMessageReplySuccess(sh, message);
+   
+   return true;
+}
+static bool analRead(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   LSError lserror;
+   int num;
+   json_object *pinObj;
+   json_object *pinNum;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   pinNum = json_object_object_get(pinObj,"pinNum");
+   num = json_object_get_int(pinNum);
+    
+   if(!num) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   analogRead(num);
+   LSMessageReplySuccess(sh, message);
+   
+   return true;
+}
+static bool analWrite(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   LSError lserror;
+   int num, value;
+   json_object *pinObj;
+   json_object *pinNum;
+   json_object *pinValue;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   pinNum = json_object_object_get(pinObj,"pinNum");
+   pinValue = json_object_object_get(pinObj,"pinValue");
+   num = json_object_get_int(pinNum);
+   value = json_object_get_int(pinValue);
+    
+   if((!num) || (!value)) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   analogWrite(num, value);
+   LSMessageReplySuccess(sh, message);
+   
+   return true;
+}
+
 static LSMethod serviceMethods[] = {
    { "gpio", cbHello }, 
    {"setWiringPi", setWiringPi},
@@ -171,7 +263,11 @@ static LSMethod serviceMethods[] = {
    {"setWiringPiSys", setWiringPiSys},
    {"setPinMode", setPinMode},
    {"digitWrite", digitWrite},
-   {"setPullUpDnControl", setPullUpDnControl}
+   {"setPullUpDnControl", setPullUpDnControl},
+   {"writePwm", writePwm},
+   {"digitRead", digitRead},
+   {"analRead", analRead},
+   {"analWrite", analWrite}
 };
  
 int main(int argc, char* argv[])

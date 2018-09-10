@@ -1,11 +1,15 @@
 {
     "public": [
         "com.webos.service.rpi.gpio/gpio", 
-	"com.webos.service.rpi.gpio/setWiringPi"
-	"com.webos.service.rpi.gpio/setWiringPiPhys"
-	"com.webos.service.rpi.gpio/setWiringPiSys"
-	"com.webos.service.rpi.gpio/setPinMode"
-	"com.webos.service.rpi.gpio/digitWrite"
-	"com.webos.service.rpi.gpio/SetPullUpDnControl"
+	"com.webos.service.rpi.gpio/setWiringPi",
+	"com.webos.service.rpi.gpio/setWiringPiPhys",
+	"com.webos.service.rpi.gpio/setWiringPiSys",
+	"com.webos.service.rpi.gpio/setPinMode",
+	"com.webos.service.rpi.gpio/digitWrite",
+	"com.webos.service.rpi.gpio/SetPullUpDnControl",
+	"com.webos.service.rpi.gpio/writePwm",
+	"com.webos.service.rpi.gpio/digitRead",
+	"com.webos.service.rpi.gpio/analRead",
+	"com.webos.service.rpi.gpio/analWrite"
     ]
 }
