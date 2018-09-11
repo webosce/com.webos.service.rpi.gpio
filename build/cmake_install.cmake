@@ -106,14 +106,14 @@ endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/etc/systemd/system/com.webos.service.rpi.gpio")
+   "/etc/systemd/system/com.webos.service.rpi.gpio.service")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/etc/systemd/system" TYPE FILE FILES "/home/jhryu/project/com.webos.service.rpi.gpio/build/Configured/files/systemd/com.webos.service.rpi.gpio")
+file(INSTALL DESTINATION "/etc/systemd/system" TYPE FILE FILES "/home/jhryu/project/com.webos.service.rpi.gpio/build/Configured/files/systemd/com.webos.service.rpi.gpio.service")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

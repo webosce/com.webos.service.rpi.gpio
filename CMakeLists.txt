@@ -41,4 +41,4 @@ target_link_libraries(${PROJECT_NAME} ${PMLOGLIB_LDFLAGS})
 install(TARGETS ${PROJECT_NAME} DESTINATION ${WEBOS_INSTALL_SBINDIR})
   
 webos_build_system_bus_files()
-webos_build_configured_file(files/systemd/com.webos.service.rpi.gpio SYSCONFDIR systemd/system)
+webos_build_configured_file(files/systemd/com.webos.service.rpi.gpio.service SYSCONFDIR systemd/system)

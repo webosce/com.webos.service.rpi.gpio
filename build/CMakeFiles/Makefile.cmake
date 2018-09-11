@@ -13,7 +13,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/feature_tests.cxx"
   "../files/sysbus/com.webos.service.rpi.gpio.role.json.in"
   "../files/sysbus/com.webos.service.rpi.gpio.service.in"
-  "../files/systemd/com.webos.service.rpi.gpio.in"
+  "../files/systemd/com.webos.service.rpi.gpio.service.in"
   "/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/share/cmake-3.6/Modules/CMakeCXXCompiler.cmake.in"
   "/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp"
   "/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/share/cmake-3.6/Modules/CMakeCXXInformation.cmake"
@@ -94,7 +94,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.6.1/CMakeCXXCompiler.cmake"
   "Configured/files/sysbus/com.webos.service.rpi.gpio.service"
   "Configured/files/sysbus/com.webos.service.rpi.gpio.role.json"
-  "Configured/files/systemd/com.webos.service.rpi.gpio"
+  "Configured/files/systemd/com.webos.service.rpi.gpio.service"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
