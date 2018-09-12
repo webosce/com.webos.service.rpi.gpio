@@ -1,10 +1,11 @@
 Summary
 -------
-native gpio 
+gpio control service
 
 Description
 -----------
-native gpio 
+it supports wiringPi core functions
+I am on the work for SPI and I2C as well 
 
 How to Build on Linux
 ---------------------
