@@ -263,6 +263,64 @@ static bool analWrite(LSHandle *sh, LSMessage* message, void *ctx)
    return true;
 }
 
+static bool setWiringPiSPI(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   
+   LSError lserror;
+   int channel, speed;
+   json_object *pinObj;
+   json_object *chan;
+   json_object *spd;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   chan = json_object_object_get(pinObj,"channel");
+   spd = json_object_object_get(pinObj,"speed");
+   channel = json_object_get_int(chan);
+   speed = json_object_get_int(spd);
+    
+   if((!channel) || (!speed)) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+
+   wiringPiSPISetup(channel, speed);
+   LSMessageReplySuccess(sh, message);
+   
+   return true;
+}
+
+static bool wiringPiSPIRWData(LSHandle *sh, LSMessage* message, void *ctx)
+{
+   
+   LSError lserror;
+   int channel, lenth;
+   unsigned char *dat = NULL;
+   json_object *pinObj;
+   json_object *chan;
+   json_object *len;
+   json_object *data;
+   
+   pinObj = json_tokener_parse(LSMessageGetPayload(message));
+
+   chan = json_object_object_get(pinObj,"channel");
+   data = json_object_object_get(pinObj,"data");
+   len = json_object_object_get(pinObj, "len");
+
+   channel = json_object_get_int(chan);
+   lenth = json_object_get_int(len);
+   dat = (unsigned char*)json_object_get_string(data);
+
+   if((!channel) || (!lenth) || dat == NULL) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+
+   wiringPiSPIDataRW(channel, dat, lenth);
+   LSMessageReplySuccess(sh, message);
+   return true;
+}
+   
 static LSMethod serviceMethods[] = {
    { "gpio", cbHello }, 
    {"setWiringPi", setWiringPi},
@@ -274,7 +332,9 @@ static LSMethod serviceMethods[] = {
    {"writePwm", writePwm},
    {"digitRead", digitRead},
    {"analRead", analRead},
-   {"analWrite", analWrite}
+   {"analWrite", analWrite},
+   {"setWiringPiSPI",setWiringPiSPI},
+   {"wiringPiSPIRWData", wiringPiSPIRWData}
 };
  
 int main(int argc, char* argv[])

@@ -10,6 +10,8 @@
 	"com.webos.service.rpi.gpio/writePwm",
 	"com.webos.service.rpi.gpio/digitRead",
 	"com.webos.service.rpi.gpio/analRead",
-	"com.webos.service.rpi.gpio/analWrite"
+	"com.webos.service.rpi.gpio/analWrite",
+        "com.webos.service.rpi.gpio/setWiringPiSPI",
+	"com.webos.service.rpi.gpio/wiringPiSPIRWData"
     ]
 }
