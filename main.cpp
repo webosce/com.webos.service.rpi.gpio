@@ -107,6 +107,7 @@ static bool setPinMode(LSHandle *sh, LSMessage* message, void *ctx)
     
    if((!num) || (!mode)) {
       LSMessageReplyErrorBadJson(sh,message);
+      return false;
    }
 
    pinMode(num, mode);
@@ -132,6 +133,7 @@ static bool digitWrite(LSHandle *sh, LSMessage* message, void *ctx)
     
    if((!num) || (!value)) {
       LSMessageReplyErrorBadJson(sh,message);
+      return false;
    }
 
    digitalWrite(num, value);
@@ -157,6 +159,7 @@ static bool setPullUpDnControl(LSHandle *sh, LSMessage* message, void *ctx)
     
    if((!num) || (!pud)) {
       LSMessageReplyErrorBadJson(sh,message);
+      return false;
    }
 
    pullUpDnControl(num,pud);
@@ -182,6 +185,7 @@ static bool writePwm(LSHandle *sh, LSMessage* message, void *ctx)
     
    if((!num) || (!pwm)) {
       LSMessageReplyErrorBadJson(sh,message);
+      return false;
    }
 
    pwmWrite(num, pwm);
@@ -203,6 +207,7 @@ static bool digitRead(LSHandle *sh, LSMessage* message, void *ctx)
     
    if(!num) {
       LSMessageReplyErrorBadJson(sh,message);
+      return false;
    }
 
    digitalRead(num);
@@ -224,6 +229,7 @@ static bool analRead(LSHandle *sh, LSMessage* message, void *ctx)
     
    if(!num) {
       LSMessageReplyErrorBadJson(sh,message);
+      return false;
    }
 
    analogRead(num);
@@ -248,6 +254,7 @@ static bool analWrite(LSHandle *sh, LSMessage* message, void *ctx)
     
    if((!num) || (!value)) {
       LSMessageReplyErrorBadJson(sh,message);
+      return false;
    }
 
    analogWrite(num, value);
