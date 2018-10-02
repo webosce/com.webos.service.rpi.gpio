@@ -3,7 +3,7 @@ project(com.webos.service.rpi.gpio CXX)
 set(CMAKE_BUILD_TYPE Debug)
   
 include(webOS/webOS)
-webos_modules_init(1 6 3)
+webos_modules_init(1 6 3 QUALIFIER RC4)
 webos_component(1 0 0)
   
 include(FindPkgConfig)
