@@ -12,8 +12,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/jhryu/webos/build-webos/BUILD/sysroots/raspberrypi3/usr/include/glib-2.0"
-  "/home/jhryu/webos/build-webos/BUILD/sysroots/raspberrypi3/usr/lib/glib-2.0/include"
+  "/home/jhryu/webos_bak/build-webos/BUILD/sysroots/raspberrypi3/usr/include/glib-2.0"
+  "/home/jhryu/webos_bak/build-webos/BUILD/sysroots/raspberrypi3/usr/lib/glib-2.0/include"
   "../include"
   )
 

@@ -51,7 +51,7 @@ file(INSTALL DESTINATION "/usr/sbin" TYPE EXECUTABLE FILES "/home/jhryu/project/
   if(EXISTS "$ENV{DESTDIR}/usr/sbin/com.webos.service.rpi.gpio" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/usr/sbin/com.webos.service.rpi.gpio")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-strip" "$ENV{DESTDIR}/usr/sbin/com.webos.service.rpi.gpio")
+      execute_process(COMMAND "/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-strip" "$ENV{DESTDIR}/usr/sbin/com.webos.service.rpi.gpio")
     endif()
   endif()
 endif()

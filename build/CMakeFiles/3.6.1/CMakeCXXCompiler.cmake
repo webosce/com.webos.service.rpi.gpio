@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++")
+set(CMAKE_CXX_COMPILER "/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "6.4.0")
@@ -14,8 +14,8 @@ set(CMAKE_CXX_SIMULATE_ID "")
 set(CMAKE_CXX_SIMULATE_VERSION "")
 
 set(CMAKE_AR "arm-webos-linux-gnueabi-ar")
-set(CMAKE_RANLIB "/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-ranlib")
-set(CMAKE_LINKER "/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-ld")
+set(CMAKE_RANLIB "/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-ranlib")
+set(CMAKE_LINKER "/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-ld")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
 set(CMAKE_CXX_COMPILER_LOADED 1)
 set(CMAKE_CXX_COMPILER_WORKS TRUE)
@@ -64,5 +64,5 @@ endif()
 
 
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;m;c")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/lib/arm-webos-linux-gnueabi/gcc/arm-webos-linux-gnueabi/6.4.0;/home/jhryu/webos/build-webos/BUILD/sysroots/raspberrypi3/lib;/home/jhryu/webos/build-webos/BUILD/sysroots/raspberrypi3/usr/lib/arm-webos-linux-gnueabi/6.4.0;/home/jhryu/webos/build-webos/BUILD/sysroots/raspberrypi3/usr/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/lib/arm-webos-linux-gnueabi/gcc/arm-webos-linux-gnueabi/6.4.0;/home/jhryu/webos_bak/build-webos/BUILD/sysroots/raspberrypi3/lib;/home/jhryu/webos_bak/build-webos/BUILD/sysroots/raspberrypi3/usr/lib/arm-webos-linux-gnueabi/6.4.0;/home/jhryu/webos_bak/build-webos/BUILD/sysroots/raspberrypi3/usr/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

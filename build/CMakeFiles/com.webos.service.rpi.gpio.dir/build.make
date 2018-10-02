@@ -37,10 +37,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/cmake
+CMAKE_COMMAND = /home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/cmake
 
 # The command to remove a file.
-RM = /home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/cmake -E remove -f
+RM = /home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -63,15 +63,15 @@ include CMakeFiles/com.webos.service.rpi.gpio.dir/flags.make
 CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o: CMakeFiles/com.webos.service.rpi.gpio.dir/flags.make
 CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o -c /home/jhryu/project/com.webos.service.rpi.gpio/main.cpp
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o -c /home/jhryu/project/com.webos.service.rpi.gpio/main.cpp
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.i"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jhryu/project/com.webos.service.rpi.gpio/main.cpp > CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.i
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jhryu/project/com.webos.service.rpi.gpio/main.cpp > CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.i
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.s"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jhryu/project/com.webos.service.rpi.gpio/main.cpp -o CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.s
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jhryu/project/com.webos.service.rpi.gpio/main.cpp -o CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.s
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o.requires:
 
@@ -87,15 +87,15 @@ CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o.provides.build: CMakeFiles/
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o: CMakeFiles/com.webos.service.rpi.gpio.dir/flags.make
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o: ../src/logging.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o -c /home/jhryu/project/com.webos.service.rpi.gpio/src/logging.cpp
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o -c /home/jhryu/project/com.webos.service.rpi.gpio/src/logging.cpp
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.i"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jhryu/project/com.webos.service.rpi.gpio/src/logging.cpp > CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.i
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jhryu/project/com.webos.service.rpi.gpio/src/logging.cpp > CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.i
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.s"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jhryu/project/com.webos.service.rpi.gpio/src/logging.cpp -o CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.s
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jhryu/project/com.webos.service.rpi.gpio/src/logging.cpp -o CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.s
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o.requires:
 
@@ -111,15 +111,15 @@ CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o.provides.build: CMak
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.o: CMakeFiles/com.webos.service.rpi.gpio.dir/flags.make
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.o: ../src/gpioBase.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.o"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.o -c /home/jhryu/project/com.webos.service.rpi.gpio/src/gpioBase.cpp
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.o -c /home/jhryu/project/com.webos.service.rpi.gpio/src/gpioBase.cpp
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.i"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jhryu/project/com.webos.service.rpi.gpio/src/gpioBase.cpp > CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.i
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jhryu/project/com.webos.service.rpi.gpio/src/gpioBase.cpp > CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.i
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.s"
-	/home/jhryu/webos/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jhryu/project/com.webos.service.rpi.gpio/src/gpioBase.cpp -o CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.s
+	/home/jhryu/webos_bak/build-webos/BUILD/sysroots/x86_64-linux/usr/bin/arm-webos-linux-gnueabi/arm-webos-linux-gnueabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jhryu/project/com.webos.service.rpi.gpio/src/gpioBase.cpp -o CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.s
 
 CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.o.requires:
 
@@ -145,8 +145,8 @@ com.webos.service.rpi.gpio: CMakeFiles/com.webos.service.rpi.gpio.dir/main.cpp.o
 com.webos.service.rpi.gpio: CMakeFiles/com.webos.service.rpi.gpio.dir/src/logging.cpp.o
 com.webos.service.rpi.gpio: CMakeFiles/com.webos.service.rpi.gpio.dir/src/gpioBase.cpp.o
 com.webos.service.rpi.gpio: CMakeFiles/com.webos.service.rpi.gpio.dir/build.make
-com.webos.service.rpi.gpio: /home/jhryu/webos/build-webos/BUILD/sysroots/raspberrypi3/usr/lib/libwiringPi.so
-com.webos.service.rpi.gpio: /home/jhryu/webos/build-webos/BUILD/sysroots/raspberrypi3/usr/lib/libjson-c.so
+com.webos.service.rpi.gpio: /home/jhryu/webos_bak/build-webos/BUILD/sysroots/raspberrypi3/usr/lib/libwiringPi.so
+com.webos.service.rpi.gpio: /home/jhryu/webos_bak/build-webos/BUILD/sysroots/raspberrypi3/usr/lib/libjson-c.so
 com.webos.service.rpi.gpio: CMakeFiles/com.webos.service.rpi.gpio.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jhryu/project/com.webos.service.rpi.gpio/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable com.webos.service.rpi.gpio"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/com.webos.service.rpi.gpio.dir/link.txt --verbose=$(VERBOSE)
