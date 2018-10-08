@@ -327,12 +327,12 @@ static LSMethod serviceMethods[] = {
    {"setWiringPiPhys", setWiringPiPhys},
    {"setWiringPiSys", setWiringPiSys},
    {"setPinMode", setPinMode},
-   {"digitWrite", digitWrite},
+   {"digitalWrite", digitWrite},
    {"setPullUpDnControl", setPullUpDnControl},
    {"writePwm", writePwm},
-   {"digitRead", digitRead},
-   {"analRead", analRead},
-   {"analWrite", analWrite},
+   {"digitalRead", digitRead},
+   {"analogRead", analRead},
+   {"analogWrite", analWrite},
    {"setWiringPiSPI",setWiringPiSPI},
    {"wiringPiSPIRWData", wiringPiSPIRWData}
 };
