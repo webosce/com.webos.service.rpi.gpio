@@ -323,18 +323,18 @@ static bool wiringPiSPIRWData(LSHandle *sh, LSMessage* message, void *ctx)
    
 static LSMethod serviceMethods[] = {
    { "gpio", cbHello }, 
-   {"setWiringPi", setWiringPi},
-   {"setWiringPiPhys", setWiringPiPhys},
-   {"setWiringPiSys", setWiringPiSys},
-   {"setPinMode", setPinMode},
+   {"WiringPiSetup", setWiringPi},
+   {"WiringPiSetupPhys", setWiringPiPhys},
+   {"WiringPiSetupSys", setWiringPiSys},
+   {"PinMode", setPinMode},
    {"digialtWrite", digitWrite},
-   {"setPullUpDnControl", setPullUpDnControl},
-   {"writePwm", writePwm},
+   {"PullUpDnControl", setPullUpDnControl},
+   {"pwmWrite", writePwm},
    {"digitalRead", digitRead},
    {"analogRead", analRead},
    {"analogWrite", analWrite},
-   {"setWiringPiSPI",setWiringPiSPI},
-   {"wiringPiSPIRWData", wiringPiSPIRWData}
+   {"WiringPiSPISetup",setWiringPiSPI},
+   {"wiringPiSPIDataRW", wiringPiSPIRWData}
 };
  
 int main(int argc, char* argv[])
