@@ -295,9 +295,9 @@ static bool setWiringPiSPI(LSHandle *sh, LSMessage* message, void *ctx)
 static bool wiringPiSPIRWData(LSHandle *sh, LSMessage* message, void *ctx)
 {
    
-   LSError lserror;
    int channel, lenth;
    unsigned char *dat = NULL;
+   LSError lserror;
    json_object *pinObj;
    json_object *chan;
    json_object *len;
@@ -323,6 +323,184 @@ static bool wiringPiSPIRWData(LSHandle *sh, LSMessage* message, void *ctx)
    retLSMessageReplySuccess(sh, message,ret);
    return true;
 }
+static bool piI2CSetup(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *dev;
+   int devId;
+   
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   dev = json_object_object_get(pinObj,"devId");
+   devId = json_object_get_int(dev);
+
+   if((!devId)) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+   ret = wiringPiI2CSetup(devId);
+   retLSMessageReplySuccess(sh,message,ret);
+   return true;
+}
+
+static bool piI2CRead(LSHandle *sh, LSMessage *message, void *ctx) 
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   int file;
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   fd = json_object_object_get(pinObj,"fd");
+   file = json_object_get_int(fd);
+   
+   if(!fd) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+   ret = wiringPiI2CRead(file);
+   retLSMessageReplySuccess(sh,message,ret);
+   return true;
+}
+
+static bool piI2CWrite(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   json_object *data;
+   int dat;
+   int file;
+   
+
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   data=json_object_object_get(pinObj,"data");
+   file=json_object_get_int(fd);
+   dat=json_object_get_int(data);
+
+   if((!file)||(!dat)) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+   ret = wiringPiI2CWrite(file, dat);
+   retLSMessageReplySuccess(sh,message,ret);
+   return true;
+}
+
+static bool piI2CWriteReg8(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   json_object *data;
+   json_object *reg;
+   int dat;
+   int file;
+   int regi;
+
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   data=json_object_object_get(pinObj,"data");
+   reg=json_object_object_get(pinObj,"reg");
+   file=json_object_get_int(fd);
+   dat=json_object_get_int(data);
+   regi=json_object_get_int(reg);
+   
+
+   if(!dat || !regi || !file) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+   ret=wiringPiI2CWriteReg8(file,regi,dat);
+   retLSMessageReplySuccess(sh,message,ret);
+   return true;
+}  
+
+static bool piI2CWriteReg16(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   json_object *data;
+   json_object *reg;
+   int dat;
+   int file;
+   int regi;
+
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   data=json_object_object_get(pinObj,"data");
+   reg=json_object_object_get(pinObj,"reg");
+   file=json_object_get_int(fd);
+   dat=json_object_get_int(data);
+   regi=json_object_get_int(reg);
+   
+
+   if(!dat || !regi || !file) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+   ret=wiringPiI2CWriteReg16(file,regi,dat);
+   retLSMessageReplySuccess(sh,message,ret);
+   return true;
+}
+
+static bool piI2CReadReg8(LSHandle *sh, LSMessage *message,void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   json_object *reg;
+   int file;
+   int regi;
+
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   reg=json_object_object_get(pinObj,"reg");
+   file=json_object_get_int(fd);
+   regi=json_object_get_int(reg);
+   
+
+   if(!regi || !file) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+   ret=wiringPiI2CReadReg8(file,regi);
+   retLSMessageReplySuccess(sh,message,ret);
+   return true;
+}
+
+static bool piI2CReadReg16(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   json_object *reg;
+   int file;
+   int regi;
+
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   reg=json_object_object_get(pinObj,"reg");
+   file=json_object_get_int(fd);
+   regi=json_object_get_int(reg);
+   
+
+   if(!regi || !file) {
+      LSMessageReplyErrorBadJson(sh,message);
+      return false;
+   }
+   ret=wiringPiI2CReadReg16(file,regi);
+   retLSMessageReplySuccess(sh,message,ret);
+   return true;
+}
 
 static LSMethod serviceMethods[] = {
    { "gpio", cbHello }, 
@@ -337,7 +515,14 @@ static LSMethod serviceMethods[] = {
    {"analogRead", analRead},
    {"analogWrite", analWrite},
    {"wiringPiSPISetup",setWiringPiSPI},
-   {"wiringPiSPIDataRW", wiringPiSPIRWData}
+   {"wiringPiSPIDataRW", wiringPiSPIRWData},
+   {"wiringPiI2CSetup ", piI2CSetup},
+   {"wiringPiI2CRead ", piI2CRead},
+   {"wiringPiI2CWrite",piI2CWrite},
+   {"wiringPiI2CWriteReg8",piI2CWriteReg8},
+   {"wiringPiI2CWriteReg16",piI2CWriteReg16},
+   {"wiringPiI2CReadReg8",piI2CReadReg8},
+   {"wiringPiI2CReadReg16 ",piI2CReadReg16}
 };
  
 int main(int argc, char* argv[])
