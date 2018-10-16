@@ -49,28 +49,28 @@ static bool cbHello(LSHandle *sh, LSMessage* message, void* ctx)
 static bool setWiringPi(LSHandle *sh, LSMessage* message, void *ctx)
 {
    LSError lserror;
-
-   if(wiringPiSetup() == -1)
+   int ret;
+   if(ret=wiringPiSetup() == -1)
    {
 	LSMessageReplySetupFail(sh, message);
 	return false;
    }
   
-   LSMessageReplySuccess(sh, message);
+   retLSMessageReplySuccess(sh, message,ret);
    return true;
 }
 
 static bool setWiringPiPhys(LSHandle *sh, LSMessage* message, void *ctx) 
 {
    LSError lserror;
-
-   if(wiringPiSetupPhys() == -1)
+   int ret;
+   if(ret=wiringPiSetupPhys() == -1)
    {
 	LSMessageReplySetupFail(sh, message);
 	return false;
    }
    
-   LSMessageReplySuccess(sh, message);
+   retLSMessageReplySuccess(sh, message,ret);
    return true;
 
 }
@@ -78,8 +78,8 @@ static bool setWiringPiPhys(LSHandle *sh, LSMessage* message, void *ctx)
 static bool setWiringPiSys(LSHandle *sh, LSMessage* message, void *ctx) 
 {
    LSError lserror;
-
-   if(wiringPiSetupSys() == -1)
+   int ret;
+   if(ret=wiringPiSetupSys() == -1)
    {
 	LSMessageReplySetupFail(sh, message);
 	return false;
@@ -199,7 +199,8 @@ static bool digitRead(LSHandle *sh, LSMessage* message, void *ctx)
    int num;
    json_object *pinObj;
    json_object *pinNum;
-   
+   int ret;
+ 
    pinObj = json_tokener_parse(LSMessageGetPayload(message));
 
    pinNum = json_object_object_get(pinObj,"pinNum");
@@ -210,8 +211,8 @@ static bool digitRead(LSHandle *sh, LSMessage* message, void *ctx)
       return false;
    }
 
-   digitalRead(num);
-   LSMessageReplySuccess(sh, message);
+   ret = digitalRead(num);
+   retLSMessageReplySuccess(sh, message,ret);
    
    return true;
 }
@@ -221,7 +222,7 @@ static bool analRead(LSHandle *sh, LSMessage* message, void *ctx)
    int num;
    json_object *pinObj;
    json_object *pinNum;
-   
+   int ret;  
    pinObj = json_tokener_parse(LSMessageGetPayload(message));
 
    pinNum = json_object_object_get(pinObj,"pinNum");
@@ -232,8 +233,8 @@ static bool analRead(LSHandle *sh, LSMessage* message, void *ctx)
       return false;
    }
 
-   analogRead(num);
-   LSMessageReplySuccess(sh, message);
+   ret=analogRead(num);
+   retLSMessageReplySuccess(sh, message,ret);
    
    return true;
 }
@@ -271,7 +272,8 @@ static bool setWiringPiSPI(LSHandle *sh, LSMessage* message, void *ctx)
    json_object *pinObj;
    json_object *chan;
    json_object *spd;
-   
+   int ret;  
+ 
    pinObj = json_tokener_parse(LSMessageGetPayload(message));
 
    chan = json_object_object_get(pinObj,"channel");
@@ -284,8 +286,8 @@ static bool setWiringPiSPI(LSHandle *sh, LSMessage* message, void *ctx)
       return false;
    }
 
-   wiringPiSPISetup(channel, speed);
-   LSMessageReplySuccess(sh, message);
+   ret = wiringPiSPISetup(channel, speed);
+   retLSMessageReplySuccess(sh, message,ret);
    
    return true;
 }
@@ -300,7 +302,8 @@ static bool wiringPiSPIRWData(LSHandle *sh, LSMessage* message, void *ctx)
    json_object *chan;
    json_object *len;
    json_object *data;
-   
+   int ret;
+
    pinObj = json_tokener_parse(LSMessageGetPayload(message));
 
    chan = json_object_object_get(pinObj,"channel");
@@ -316,11 +319,11 @@ static bool wiringPiSPIRWData(LSHandle *sh, LSMessage* message, void *ctx)
       return false;
    }
 
-   wiringPiSPIDataRW(channel, dat, lenth);
-   LSMessageReplySuccess(sh, message);
+   ret = wiringPiSPIDataRW(channel, dat, lenth);
+   retLSMessageReplySuccess(sh, message,ret);
    return true;
 }
-   
+
 static LSMethod serviceMethods[] = {
    { "gpio", cbHello }, 
    {"wiringPiSetup", setWiringPi},

@@ -3,3 +3,4 @@
 void LSMessageReplyErrorBadJson(LSHandle *sh, LSMessage *msg);
 void LSMessageReplySetupFail(LSHandle *sh, LSMessage *msg);
 void LSMessageReplySuccess(LSHandle *sh, LSMessage *msg);
+void retLSMessageReplySuccess(LSHandle *sh, LSMessage *msg, int ret);
