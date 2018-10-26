@@ -502,6 +502,191 @@ static bool piI2CReadReg16(LSHandle *sh, LSMessage *message, void *ctx)
    return true;
 }
 
+static bool openSerial(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *device;
+   json_object *baud;
+   int num_baud;
+   char *ch_device=NULL;
+   
+
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   device=json_object_object_get(pinObj,"device");
+   baud=json_object_object_get(pinObj, "baud");
+   num_baud=json_object_get_int(baud);
+   ch_device=(char *)json_object_get_string(baud);
+
+   if(!num_baud || !ch_device) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+   ret=serialOpen(ch_device, num_baud);
+   retLSMessageReplySuccess(sh, message, ret);
+   return true;
+}
+
+static bool closeSerial(LSHandle *sh, LSMessage *message, void *ctx) 
+{
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   int num_fd;
+   
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj, "fd");
+   num_fd=json_object_get_int(fd);
+
+   if(!fd) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+   serialClose(num_fd);
+   LSMessageReplySuccess(sh, message);
+   return true;
+}
+
+static bool putcharSerial(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *c;
+   json_object *fd;
+   int num_fd;
+   unsigned char ch_c=NULL;
+   unsigned char *s=NULL;
+ 
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   c=json_object_object_get(pinObj,"c");
+   fd=json_object_object_get(pinObj, "fd");
+   num_fd=json_object_get_int(fd);
+   s=(unsigned char*)json_object_get_string(c);
+   ch_c = s[0];
+
+   if(!num_fd || !ch_c) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   serialPutchar(num_fd, ch_c);
+   LSMessageReplySuccess(sh, message);
+   return true;
+}
+
+static bool putsSerial(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   LSError lserror;
+   json_object *pinObj;
+   json_object *s;
+   json_object *fd;
+   char *ch_s=NULL;
+   int num_fd;
+   
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   s=json_object_object_get(pinObj, "s");
+   fd=json_object_object_get(pinObj,"fd");
+   
+   num_fd=json_object_get_int(fd);
+   ch_s=(char*)json_object_get_string(s);
+   
+   if(!num_fd || !ch_s) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+
+   serialPuts(num_fd, ch_s);
+   LSMessageReplySuccess(sh,message);
+   return true;
+}
+
+static bool printfSerial(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   json_object *pi_message;
+   char *ch_message=NULL;
+   int num_fd;
+
+   pinObj=json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   pi_message=json_object_object_get(pinObj, "message");
+   
+   num_fd=json_object_get_int(fd);
+   ch_message=(char *)json_object_get_string(pi_message);
+   if(!num_fd || !ch_message) {
+      LSMessageReplyErrorBadJson(sh, message);
+   }
+   
+   serialPrintf(num_fd, ch_message);
+   LSMessageReplySuccess(sh,message);
+   return true;
+}
+
+static bool dataAvailSerial(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   int num_fd;
+
+   json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   num_fd=json_object_get_int(fd);
+
+   if(!num_fd) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+  
+   ret=serialDataAvail(num_fd);
+   retLSMessageReplySuccess(sh,message,ret);
+
+   return true;
+}
+
+static bool getcharSerial(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   int ret;
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   int num_fd;
+
+   json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   num_fd=json_object_get_int(fd);
+
+   if(!num_fd) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+  
+   ret=serialGetchar(num_fd);
+   retLSMessageReplySuccess(sh,message,ret);
+
+   return true;
+}
+
+static bool flushSerial(LSHandle *sh, LSMessage *message, void *ctx)
+{
+   LSError lserror;
+   json_object *pinObj;
+   json_object *fd;
+   int num_fd;
+
+   json_tokener_parse(LSMessageGetPayload(message));
+   fd=json_object_object_get(pinObj,"fd");
+   num_fd=json_object_get_int(fd);
+
+   if(!num_fd) {
+      LSMessageReplyErrorBadJson(sh,message);
+   }
+  
+   serialFlush(num_fd);
+   LSMessageReplySuccess(sh,message);
+
+   return true;
+}
+
 static LSMethod serviceMethods[] = {
    { "gpio", cbHello }, 
    {"wiringPiSetup", setWiringPi},
@@ -522,7 +707,15 @@ static LSMethod serviceMethods[] = {
    {"wiringPiI2CWriteReg8",piI2CWriteReg8},
    {"wiringPiI2CWriteReg16",piI2CWriteReg16},
    {"wiringPiI2CReadReg8",piI2CReadReg8},
-   {"wiringPiI2CReadReg16 ",piI2CReadReg16}
+   {"wiringPiI2CReadReg16 ",piI2CReadReg16},
+   {"serialOpen", openSerial},
+   {"serialClose", closeSerial},
+   {"serialPutchar", putcharSerial},
+   {"serialPuts", putsSerial},
+   {"serialPrintf", printfSerial},
+   {"serialDataAvail", dataAvailSerial},
+   {"serialGetchar",getcharSerial},
+   {"serialFlush", flushSerial}
 };
  
 int main(int argc, char* argv[])

@@ -19,6 +19,14 @@
 	"com.webos.service.rpi.gpio/wiringPiI2CWriteReg8",
 	"com.webos.service.rpi.gpio/wiringPiI2CWriteReg16",
 	"com.webos.service.rpi.gpio/wiringPiI2CReadReg8",
-	"com.webos.serivce.rpi.gpio/wiringPiI2CReadReg16"
+	"com.webos.service.rpi.gpio/wiringPiI2CReadReg16",
+	"com.webos.service.rpi.gpio/serialOpen",
+	"com.webos.service.rpi.gpio/serialClose",
+	"com.webos.service.rpi.gpio/serialPutchar",
+	"com.webos.service.rpi.gpio/serialPuts",
+	"com.webos.service.rpi.gpio/serialPrintf",
+	"com.webos.service.rpi.gpio/serialDataAvail",
+	"com.webos.service.rpi.gpio/serialGetchar",
+	"com.webos.service.rpi.gpio/serialFlush"
     ]
 }
