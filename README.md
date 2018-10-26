@@ -4,8 +4,10 @@ gpio control service
 
 Description
 -----------
-it supports wiringPi core functions
-I am on the work for SPI and I2C as well 
+it supports wiringPi functions
+Detail:setup, core, SPI, I2C, Serial
+
+Currently released setup, core, SPI
 
 How to Build on Linux
 ---------------------
