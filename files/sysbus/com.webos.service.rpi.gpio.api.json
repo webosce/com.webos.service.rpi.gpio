@@ -1,5 +1,5 @@
 {
-    "public": [
+    "rpi.gpio": [
         "com.webos.service.rpi.gpio/gpio", 
 	"com.webos.service.rpi.gpio/wiringPiSetup",
 	"com.webos.service.rpi.gpio/wiringPiSetupPhys",
