@@ -5,7 +5,7 @@
 	"com.webos.service.rpi.gpio/wiringPiSetupPhys",
 	"com.webos.service.rpi.gpio/wiringPiSetupSys",
 	"com.webos.service.rpi.gpio/pinMode",
-	"com.webos.service.rpi.gpio/digialtWrite",
+	"com.webos.service.rpi.gpio/digitalWrite",
 	"com.webos.service.rpi.gpio/pullUpDnControl",
 	"com.webos.service.rpi.gpio/pwmWrite",
 	"com.webos.service.rpi.gpio/pwmWrite",
