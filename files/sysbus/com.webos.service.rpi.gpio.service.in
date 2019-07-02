@@ -3,4 +3,4 @@ Name=com.webos.service.rpi.gpio
 Exec=/usr/bin/gpio load i2c
 Exec=/usr/bin/gpio load spi
 Exec=/usr/sbin/com.webos.service.rpi.gpio
-Type=static
+Type=dynamic
